@@ -1,0 +1,61 @@
+@startuml
+class User {
+    - String username
+    - String password
+    - int coins
+    - Deck deck
+    - List<Card> stack
+    + register()
+    + login()
+    + acquirePackage()
+    + defineDeck()
+    + tradeCard()
+}
+
+class Card {
+    - String name
+    - int damage
+    + getDamage()
+    + getName()
+}
+
+class MonsterCard extends Card {
+    - String element
+}
+
+class SpellCard extends Card {
+    - String element
+}
+
+class Deck {
+    - List<Card> cards
+    + addCard(Card card)
+    + removeCard(Card card)
+    + getCards()
+}
+
+class Package {
+    - List<Card> cards
+    + getCards()
+}
+
+class Battle {
+    - User player1
+    - User player2
+    + startBattle()
+}
+
+class TradingDeal {
+    - Card offeredCard
+    - String requirement
+    + proposeDeal()
+    + acceptDeal()
+}
+
+User "1" -- "1" Deck
+User "1" -- "0..*" Card : "owns"
+Deck "1" -- "0..*" Card : "contains"
+Package "1" -- "5" Card
+Battle "1" -- "2" User
+TradingDeal "1" -- "1" Card : "offers"
+@enduml
