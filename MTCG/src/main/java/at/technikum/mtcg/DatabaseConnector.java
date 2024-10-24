@@ -1,4 +1,4 @@
-package at.technikum.mtcg; // oder den Namen des Pakets, das Sie gewählt haben
+package at.technikum.mtcg;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

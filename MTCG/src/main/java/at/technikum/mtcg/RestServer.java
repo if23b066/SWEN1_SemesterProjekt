@@ -9,7 +9,7 @@ public class RestServer {
         HttpServer server = HttpServer.create(new InetSocketAddress(10001), 0);
         server.createContext("/users", new UserHandler());
         server.createContext("/sessions", new SessionHandler());
-        server.setExecutor(null); // creates a default executor
+        server.setExecutor(null);
 
         Runtime.getRuntime().addShutdownHook(new Thread(() -> {
             System.out.println("Stopping server...");

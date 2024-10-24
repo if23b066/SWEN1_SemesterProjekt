@@ -39,7 +39,7 @@ class SessionHandler implements HttpHandler {
             os.write(response.getBytes(StandardCharsets.UTF_8));
             os.close();
         } else {
-            exchange.sendResponseHeaders(405, -1); // Method Not Allowed
+            exchange.sendResponseHeaders(405, -1);
         }
     }
 }
