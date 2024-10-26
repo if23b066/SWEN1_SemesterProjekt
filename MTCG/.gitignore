@@ -159,4 +159,6 @@ buildNumber.properties
 # JDT-specific (Eclipse Java Development Tools)
 .classpath
 
-# End of https://www.toptal.com/developers/gitignore/api/intellij,maven,java
+# Ignore specific Excel checklist files
+MTCG_Checklist_final.xlsx
+MTCG_Checklist_intermediate.xlsx
