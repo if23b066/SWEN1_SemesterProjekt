@@ -1,5 +1,7 @@
-package at.technikum.mtcg;
+package at.technikum.mtcg.server;
 
+import at.technikum.mtcg.handlers.SessionHandler;
+import at.technikum.mtcg.handlers.UserHandler;
 import com.sun.net.httpserver.HttpServer;
 import java.io.IOException;
 import java.net.InetSocketAddress;

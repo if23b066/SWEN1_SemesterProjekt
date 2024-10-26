@@ -1,4 +1,6 @@
-package at.technikum.mtcg;
+package at.technikum.mtcg.models;
+
+import at.technikum.mtcg.database.DatabaseConnector;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
