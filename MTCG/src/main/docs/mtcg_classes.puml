@@ -8,6 +8,9 @@ class User {
     - Deck deck
     + register()
     + login()
+    + generateToken()
+    + saveTokenInDatabase()
+    + validateToken()
     + acquirePackage() : -5 coins
     + defineDeck() : selects 4 best cards
     + tradeCard()
@@ -15,8 +18,10 @@ class User {
 }
 
 class Card {
+    - String id
     - String name
-    - final int damage
+    - double damage
+    - String type
     + getDamage()
     + getName()
 }
@@ -38,14 +43,15 @@ class Stack {
 
 class Deck {
     - List<Card> cards
+    + getCards()
     + addCard(Card card)
     + removeCard(Card card)
-    + getCards()
 }
 
 class Package {
-    - List<Card> cards
+    - final List<Card> cards
     + getCards()
+    + addCard()
 }
 
 class Battle {

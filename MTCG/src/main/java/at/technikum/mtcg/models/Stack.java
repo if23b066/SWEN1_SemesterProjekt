@@ -3,10 +3,10 @@ package at.technikum.mtcg.models;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Deck {
+public class Stack {
     private final List<Card> cards;
 
-    public Deck() {
+    public Stack() {
         this.cards = new ArrayList<>();
     }
 
