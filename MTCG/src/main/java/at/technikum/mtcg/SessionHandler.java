@@ -16,6 +16,7 @@ class SessionHandler implements HttpHandler {
             InputStream requestBody = exchange.getRequestBody();
             ObjectMapper objectMapper = new ObjectMapper();
             String response;
+
             try {
                 JsonNode jsonNode = objectMapper.readTree(requestBody);
                 String username = jsonNode.get("Username").asText();
@@ -24,7 +25,8 @@ class SessionHandler implements HttpHandler {
 
                 boolean loginSuccessful = user.login();
                 if (loginSuccessful) {
-                    response = "User logged in successfully.";
+                    String token = user.getToken();
+                    response = "{\"token\": \"" + token + "\"}";
                     exchange.sendResponseHeaders(200, response.getBytes(StandardCharsets.UTF_8).length);
                 } else {
                     response = "Login failed: Incorrect username or password.";
@@ -39,7 +41,7 @@ class SessionHandler implements HttpHandler {
             os.write(response.getBytes(StandardCharsets.UTF_8));
             os.close();
         } else {
-            exchange.sendResponseHeaders(405, -1);
+            exchange.sendResponseHeaders(405, -1); // Method Not Allowed
         }
     }
 }
